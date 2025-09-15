@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YPYSY | Your Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #f0f0f0;
+            --accent-blue: #00e0ff;
+            --accent-green: #00ffc8;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            animation: move-bg 60s linear infinite;
+            z-index: -1;
+        }
+        @keyframes move-bg {
+            from { background-position: 0 0; }
+            to { background-position: 500px 500px; }
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: -5px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .slogan {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-color);
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            position: relative;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .slogan::before, .slogan::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-green));
+            width: 50px;
+            top: 50%;
+            animation: slideIn 2s ease-in-out;
+        }
+        .slogan::before {
+            left: -70px;
+        }
+        .slogan::after {
+            right: -70px;
+        }
+        .contact-info {
+            margin-top: 50px;
+            display: flex;
+            gap: 25px;
+            animation: fadeIn 4s ease-in-out;
+        }
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        .contact-info a:hover {
+            color: var(--accent-blue);
+            transform: scale(1.1);
+        }
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: var(--accent-blue);
+            left: 0;
+            bottom: -5px;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .contact-info a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { width: 0; }
+            to { width: 50px; }
+        }
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 4rem;
+                letter-spacing: -2px;
+            }
+            .slogan {
+                font-size: 1rem;
+                letter-spacing: 3px;
+            }
+            .slogan::before, .slogan::after {
+                width: 30px;
+                left: -40px;
+                right: -40px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="container">
+        <h1 class="logo">YPYSY</h1>
+        <p class="slogan">Your Power, Your Strategy, Your Success</p>
+        <div class="contact-info">
+            <a href="mailto:your.team.email@example.com">Email Us</a>
+            <a href="https://github.com/your-organization" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/company/your-company" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</body>
+</html>
